@@ -77,7 +77,7 @@ All metrics here are given for voxel size of 0.05 and first layer stride of 1.
 |:------:|:--------:|:--------:|:-------:|:--------------------:|:--------:|
 | GSDN | HDResNet34 | 62.8 | 34.8 | 20.1 | |
 | FCAF3D | HDResNet34 | 64.2 | 46.2 | 17.0 | [model](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220311_170504.pth) &#124; [log](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220311_170504_fcaf3d_voxel0.05_scannet.log) &#124; [config](configs/fcaf3d/fcaf3d_voxel-0.05_scannet-3d-18class.py) |
-| FCAF3D | HDResNet34:3 | 62.9 | 43.9 | 22.9 | |[model](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220312_105756.pth) &#124; [log](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220312_105756_fcaf3d_3scales_voxel0.05_scannet.log) &#124; [config](configs/fcaf3d/fcaf3d_3scales_voxel-0.05_scannet-3d-18class.py) |
+| FCAF3D | HDResNet34:3 | 62.9 | 43.9 | 22.9 | [model](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220312_105756.pth) &#124; [log](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220312_105756_fcaf3d_3scales_voxel0.05_scannet.log) &#124; [config](configs/fcaf3d/fcaf3d_3scales_voxel-0.05_scannet-3d-18class.py) |
 
 **VoteNet on SUN RGB-D**
 
