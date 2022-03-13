@@ -9,7 +9,7 @@ Also, [MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine) and [rotated_
 
 Most of the `FCAF3D`-related code locates in the following files: 
 [detectors/single_stage_sparse.py](mmdet3d/models/detectors/single_stage_sparse.py),
-[necks/fcaf3d_neck_with_head.py](mmdet3d/models/dense_heads/fcaf3d_neck_with_head.py),
+[dense_heads/fcaf3d_neck_with_head.py](mmdet3d/models/dense_heads/fcaf3d_neck_with_head.py),
 [backbones/me_resnet.py](mmdet3d/models/backbones/me_resnet.py).
 
 ### Getting Started
@@ -39,7 +39,7 @@ Visualizations can be created with [test](tools/test.py) script.
 For better visualizations, you may set `score_thr` in configs to `0.20`:
 ```shell
 python tools/test.py configs/fcaf3d/fcaf3d_scannet-3d-18class.py \
-    work_dirs/fcaf3d_scannet-3d-18class/latest.pth --show \
+    work_dirs/fcaf3d_scannet-3d-18class/latest.pth --eval mAP --show \
     --show-dir work_dirs/fcaf3d_scannet-3d-18class
 ```
 
@@ -68,6 +68,16 @@ Inference speed in scenes per second is measured on a single NVidia GTX1080Ti.
 | HDResNet34 | 0.01 | 70.7 | 56.0 | 8.0 | see table above |
 | HDResNet34:3 | 0.01 | 69.8 | 53.6 | 12.2 | [model](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.0/20211008_191702.pth) &#124; [log](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.0/20211008_191702_fcaf3d_3scales_scannet.log) &#124; [config](configs/fcaf3d/fcaf3d_3scales_scannet-3d-18class.py) |
 | HDResNet34:2 | 0.02 | 63.1 | 46.8 | 31.5 | [model](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.0/20211008_151041.pth) &#124; [log](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.0/20211008_151041_fcaf3d_2scales_scannet.log) &#124; [config](configs/fcaf3d/fcaf3d_2scales_scannet-3d-18class.py) |
+
+**Comparison with GSDN**
+
+All metrics here are given for voxel size of 0.05 and first layer stride of 1.
+
+| Method | Backbone | mAP@0.25 | mAP@0.5 | Scenes <br> per sec. | Download |
+|:------:|:--------:|:--------:|:-------:|:--------------------:|:--------:|
+| GSDN | HDResNet34 | 62.8 | 34.8 | 20.1 | |
+| FCAF3D | HDResNet34 | 64.2 | 46.2 | 17.0 | [model](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220311_170504.pth) &#124; [log](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220311_170504_fcaf3d_voxel0.05_scannet.log) &#124; [config](configs/fcaf3d/fcaf3d_voxel-0.05_scannet-3d-18class.py) |
+| FCAF3D | HDResNet34:3 | 62.9 | 43.9 | 22.9 | [model](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220312_105756.pth) &#124; [log](https://github.com/anonymous-fcaf3d/anonymous-fcaf3d/releases/download/v1.1/20220312_105756_fcaf3d_3scales_voxel0.05_scannet.log) &#124; [config](configs/fcaf3d/fcaf3d_3scales_voxel-0.05_scannet-3d-18class.py) |
 
 **VoteNet on SUN RGB-D**
 

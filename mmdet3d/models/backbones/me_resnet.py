@@ -11,13 +11,13 @@ class ResNetBase(nn.Module):
     INIT_DIM = 64
     PLANES = (64, 128, 256, 512)
 
-    def __init__(self, in_channels, n_outs):
+    def __init__(self, in_channels, n_outs, stride):
         super(ResNetBase, self).__init__()
         self.n_outs = n_outs
         self.inplanes = self.INIT_DIM
         self.conv1 = nn.Sequential(
             ME.MinkowskiConvolution(
-                in_channels, self.inplanes, kernel_size=3, stride=2, dimension=3
+                in_channels, self.inplanes, kernel_size=3, stride=stride, dimension=3
             ),
             ME.MinkowskiInstanceNorm(self.inplanes),
             ME.MinkowskiReLU(inplace=True),
@@ -101,7 +101,7 @@ class ResNetBase(nn.Module):
 
 @BACKBONES.register_module()
 class MEResNet3D(ResNetBase):
-    def __init__(self, in_channels, depth, n_outs=4):
+    def __init__(self, in_channels, depth, n_outs=4, stride=2):
         if depth == 14:
             self.BLOCK = BasicBlock
             self.LAYERS = (1, 1, 1, 1)
@@ -120,4 +120,4 @@ class MEResNet3D(ResNetBase):
         else:
             raise ValueError(f'invalid depth={depth}')
 
-        super(MEResNet3D, self).__init__(in_channels, n_outs)
+        super(MEResNet3D, self).__init__(in_channels, n_outs, stride)
