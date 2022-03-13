@@ -1,5 +1,7 @@
 ## FCAF3D: Fully Convolutional Anchor-Free 3D Object Detection
 
+_This repo is fully anonymized (e.g. commit authors, any copyrights etc. are not connected with the authors), visitors are not tracked, thus double blindness policies are not violated. The code will not be changed after the presence of this message._
+
 ### Installation
 For convenience, we provide a [Dockerfile](docker/Dockerfile).
 
